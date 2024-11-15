@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: Library-Management
+  datasource:
+    url: jdbc:mysql://localhost:3306/library_management
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8InnoDBDialect
+    hibernate:
+      ddl-auto: update
+      generate_statistics: true
+    generate-ddl: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        show_sql: false
+
+server:
+  port: 8080
+  base-url: http://localhost:8080
+
+rate:
+  limit:
+    enabled: false
+    request:
+      time: 1
+      limit: 3
+#---------------------------------jwt-------------------------------------------------#
+jwt:
+  secret: secretKey
+  token:
+    secret: abcxyz123
+
+#---------------------------------openapi-------------------------------------------------#
+springdoc:
+  swagger-ui:
+    disable-swagger-default-url: true

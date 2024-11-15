@@ -1,0 +1,57 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.5'
+	id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'com.library.management'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// Spring Boot dependencies
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	// MySQL Connector
+	runtimeOnly 'com.mysql:mysql-connector-j'
+
+	// JWT dependencies
+	implementation 'io.jsonwebtoken:jjwt:0.9.1'
+	implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'
+	implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+
+	// JAXB API
+	implementation 'javax.xml.bind:jaxb-api:2.3.1'
+
+	// Bucket4j
+	implementation 'com.github.vladimir-bukhtoyarov:bucket4j-core:7.6.0'
+
+	// Lombok
+	compileOnly 'org.projectlombok:lombok:1.18.34'
+	annotationProcessor 'org.projectlombok:lombok:1.18.34'
+
+	// Testing dependencies
+	testImplementation 'org.mockito:mockito-core:4.0.0'
+	testImplementation 'org.mockito:mockito-junit-jupiter:4.0.0'
+	testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+
+	// OpenAPI
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2'
+}
+
+bootJar {
+	archiveFileName = 'service.jar'
+}
